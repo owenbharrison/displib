@@ -66,18 +66,22 @@ public class Example extends Display{
 		Graphics2D g2d = bfr.createGraphics();
 		background(g2d, 0);
 		int num = 8;
+		//draw 2d grid of randomly coloured, spinning, and sized rectangles.
 		for(int i=0;i<num;i++) {
 			for(int j=0;j<num;j++) {
 				double x = Maths.map(i, 0, num-1, 0, width);
 				double y = Maths.map(j, 0, num-1, 0, height);
+				//translate and rotate graphics
 				translate(g2d, x, y);
 				rotate(g2d, angle);
 				
 				stroke(g2d, red, green, blue);
 				
+				//fill or no fill?
 				if((i+j)%increment==0) fillRect(g2d, 0, 0, sizeX, sizeY);
 				else drawRect(g2d, 0, 0, sizeX, sizeY);
 				
+				//translate and rotate back
 				rotate(g2d, -angle);
 				translate(g2d, -x, -y);
 			}
@@ -85,8 +89,8 @@ public class Example extends Display{
 		
 		int tx = (int)(Math.cos(angle)*crSz);
 		int ty = (int)(Math.sin(angle)*crSz);
-		bfr = ImageFilters.chromaticAberration(bfr, tx, ty);
-		background(graphics, bfr);
+		bfr = ImageFilters.chromaticAberration(bfr, tx, ty);//add chromatic aberration effect
+		background(graphics, bfr);//display that image
 	}
 }
 ```
