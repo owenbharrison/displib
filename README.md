@@ -89,8 +89,28 @@ public class Example extends Display{
 		
 		int tx = (int)(Math.cos(angle)*crSz);
 		int ty = (int)(Math.sin(angle)*crSz);
-		bfr = ImageFilters.chromaticAberration(bfr, tx, ty);//add chromatic aberration effect
-		background(graphics, bfr);//display that image
+		background(graphics, ImageFilters.chromaticAberration(bfr, tx, ty));//set that as background
+		
+		//draw more shapes
+		for(int i=0;i<num;i++) {
+			for(int j=0;j<num;j++) {
+				double x = Maths.map(i, 0, num-1, 0, width);
+				double y = Maths.map(j, 0, num-1, 0, height);
+				translate(graphics, x, y);
+				//opposite direction
+				rotate(graphics, -angle);
+				
+				//flip around colors
+				stroke(graphics, green, blue, red);
+				
+				//opposite to fill or not with smaller swapped shapes
+				if((i+j)%increment==0) drawRect(graphics, 0, 0, sizeY/4, sizeX/4);
+				else fillRect(graphics, 0, 0, sizeY/4, sizeX/4);
+				
+				rotate(graphics, angle);
+				translate(graphics, -x, -y);
+			}
+		}
 	}
 }
 ```
