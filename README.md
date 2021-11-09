@@ -3,6 +3,8 @@ a Java lib for making simple windows for simulations
 
 # Usage
 
+this is a java program that demonstrates the ease to use this library for graphics and simulations. It is inspired by Processing and p5.js. 
+
 ```java
 public class Example extends Display{
 	private static final long serialVersionUID = 1L;
