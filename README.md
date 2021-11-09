@@ -3,7 +3,7 @@ a Java lib for making simple windows for simulations
 
 # Usage
 
-```
+```java
 public class Example extends Display{
 	private static final long serialVersionUID = 1L;
 	
