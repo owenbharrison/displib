@@ -1,6 +1,15 @@
 # displib
 a Java lib for making simple windows for simulations
 
+# Maven Dependency
+```xml
+<dependency>
+  <groupId>io.github.owenbharrison</groupId>
+  <artifactId>displib</artifactId>
+  <version>1.0.7</version>
+</dependency>
+```
+
 # Usage
 
 this is a java program that demonstrates the ease to use this library for graphics and simulations. It is inspired by Processing and p5.js. 
